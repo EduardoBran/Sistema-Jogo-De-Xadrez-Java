@@ -29,7 +29,18 @@ public class Board { //Classe Tabuleiro
 		this.columns = columns;
 	}
 	
+	//método para retornar uma peça dada a uma linha / coluna.
+	public Piece piece(int row, int column) {
+		
+		return pieces[row][column]; //retorna a matriz pieces na linha [row] e na coluna [column]
+	}
 	
+	//método para retornar a peça pela posição
+	public Piece piece(Position position) {
+		
+		return pieces[position.getRow()][position.getColumn()];
+	}
 	
+	 
 
 }
