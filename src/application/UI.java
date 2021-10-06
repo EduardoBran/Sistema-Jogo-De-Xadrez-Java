@@ -19,9 +19,10 @@ public class UI {
 		System.out.println("  a b c d e f g h");
 	}
 	
+	//metodo auxiliar para imprimir uma peça
 	private static void printPiece(ChessPiece piece) { //imprimi 1 peça
 		
-		if (piece == null) {
+		if (piece == null) { //se a peça for igual a nulo, nao tem peça no tabuleiro
 			System.out.print("-");
 		}
 		else {
