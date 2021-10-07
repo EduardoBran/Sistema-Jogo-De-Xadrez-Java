@@ -8,12 +8,11 @@ public class ChessPiece extends Piece { //peça de xadrez
 	private Color color;
 
 	public ChessPiece(Board board, Color color) {
-		super(board);
+		super(board); //repassa a chamada para o construtor da super classe que é o construtor da classe Piece
 		this.color = color;
 	}
 
 	public Color getColor() {
 		return color;
-	}
-		
+	}	
 }

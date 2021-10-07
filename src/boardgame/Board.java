@@ -4,13 +4,13 @@ public class Board { //Classe Tabuleiro
 	
 	private int rows;
 	private int columns;
-	private Piece[][] pieces;
+	private Piece[][] pieces; //matriz de peças
 	
 	public Board(int rows, int columns) {
 		
 		this.rows = rows;
 		this.columns = columns;
-		pieces = new Piece[rows][columns];
+		pieces = new Piece[rows][columns]; //minha matriz de peças é instanciada com Pieces na quantidade de linhas e colunas informadas
 	}
 
 	public int getRows() {
@@ -40,7 +40,4 @@ public class Board { //Classe Tabuleiro
 		
 		return pieces[position.getRow()][position.getColumn()];
 	}
-	
-	 
-
 }

@@ -33,12 +33,7 @@ public class Position {
 		
 		return row + ", " + column;
 	}
-	
-	
-	
-
 }
-
 
 //Classe da camada de tabuleiro.
 //É a classe que representa uma posição no tabuleiro.
