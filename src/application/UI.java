@@ -4,7 +4,7 @@ import chess.ChessPiece;
 
 public class UI { //UserInterface
 	
-	public static void printBoard(ChessPiece[][] pieces) {
+	public static void printBoard(ChessPiece[][] pieces) { //lógica para exibição do tabuleiro
 		
 		for(int i = 0 ; i < pieces.length ; i++) {
 			

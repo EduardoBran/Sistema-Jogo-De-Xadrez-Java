@@ -1,18 +1,22 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Position;
+import chess.pieces.Rei;
+import chess.pieces.Torre;
 //partida de xadrez . Coração do projeto. Onde vão ter as regras do sistema
 public class ChessMatch { 
 	
 	private Board board; //partida de xadrez TEM que ter 1 tabuleiro
 	
 	
-	public ChessMatch() {
+	public ChessMatch() { //quando é criado a partida, cria o tabuleiro e chama o setup
 		 
 		board = new Board(8 , 8); //dimensão do tabuleiro de xadrez
+		initialSetup();
 	}
 	
-	public ChessPiece[][] getPieces(){ //Retornar um matriz de peças de xadrez correspondente a essa partida.
+	public ChessPiece[][] getPieces(){ //Retornar uma matriz de peças de xadrez correspondente a essa partida.
 		
 		ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
 		
@@ -24,5 +28,13 @@ public class ChessMatch {
 			}
 		}
 		return mat; //retorna a matriz de peça da minha partida de xadrez
-	}	
+	}
+	
+	//método responsável por INICIAR a partida de xadrez colocando as peças no tabuleiro
+	private void initialSetup() {
+		
+		board.placePiece(new Torre(board, Color.WHITE), new Position(2,  1));
+		board.placePiece(new Rei(board, Color.BLACK), new Position(0,  4));
+		board.placePiece(new Rei(board, Color.WHITE), new Position(7,  4));
+	}
 }

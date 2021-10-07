@@ -3,7 +3,7 @@ package boardgame;
 public class Piece { //Classe peça
 	
 	protected Position position; //protected pq esse tipo de posição nao é posição do xadrez. Ela é uma posição simples de matiz. Eu não quero que essa posição seja visivel na camada de xadrez.
-	private Board board;
+	private Board board; //toda peça tem 1 tabuleiro
 	
 	public Piece(Board board) {
 		

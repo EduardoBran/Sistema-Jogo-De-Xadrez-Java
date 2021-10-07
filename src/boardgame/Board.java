@@ -4,7 +4,7 @@ public class Board { //Classe Tabuleiro
 	
 	private int rows;
 	private int columns;
-	private Piece[][] pieces; //matriz de peças
+	private Piece[][] pieces; //matriz de peças (todo tabuleiro tem 1 ou mais peças)
 	
 	public Board(int rows, int columns) {
 		
@@ -39,5 +39,12 @@ public class Board { //Classe Tabuleiro
 	public Piece piece(Position position) {
 		
 		return pieces[position.getRow()][position.getColumn()];
+	}
+	
+	//método que recebe uma peça e uma posição e é responsável por colocar uma peça nessa posição do tabuleiro.
+	public void placePiece(Piece piece, Position position) {
+		
+		pieces[position.getRow()][position.getColumn()] = piece; //vai na matriz de peças do tabuleiro na linha (position.getRow) e na coluna (position.getColumn) e vai atribuir a essa posição da minha matriz de peças a peça que veio como argumento. Pegamos a matriz na posição dada e atribuimos a ela a peça que eu informei.
+		piece.position = position; //dizendo que a peça nao esta mais nula e sim na posição (position)
 	}
 }
