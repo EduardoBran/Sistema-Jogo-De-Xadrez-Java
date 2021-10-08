@@ -10,7 +10,7 @@ public class ChessMatch {
 	private Board board; //partida de xadrez TEM que ter 1 tabuleiro
 	
 	
-	public ChessMatch() { //quando é criado a partida, cria o tabuleiro e chama o setup
+	public ChessMatch() { //quando é criado a partida, o construtor cria o tabuleiro e chama o setup
 		 
 		board = new Board(8 , 8); //dimensão do tabuleiro de xadrez
 		initialSetup();
@@ -33,8 +33,8 @@ public class ChessMatch {
 	//método responsável por INICIAR a partida de xadrez colocando as peças no tabuleiro
 	private void initialSetup() {
 		
-		board.placePiece(new Torre(board, Color.WHITE), new Position(2,  1));
-		board.placePiece(new Rei(board, Color.BLACK), new Position(0,  4));
-		board.placePiece(new Rei(board, Color.WHITE), new Position(7,  4));
+		board.placePiece(new Torre(board, Color.WHITE), new Position(2, 1));
+		board.placePiece(new Rei(board, Color.BLACK), new Position(0, 4));
+		board.placePiece(new Rei(board, Color.WHITE), new Position(7, 4));
 	}
 }
