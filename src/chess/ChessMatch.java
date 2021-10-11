@@ -1,7 +1,6 @@
 package chess;
 
 import boardgame.Board;
-import boardgame.Position;
 import chess.pieces.Rei;
 import chess.pieces.Torre;
 //partida de xadrez . Coração do projeto. Onde vão ter as regras do sistema
@@ -39,9 +38,19 @@ public class ChessMatch {
 	//método responsável por INICIAR a partida de xadrez colocando as peças no tabuleiro
 	private void initialSetup() {
 		
-		placeNewPiece('b', 6, new Torre(board, Color.WHITE));
-		placeNewPiece('e', 8, new Rei(board, Color.BLACK));
-		placeNewPiece('e', 1, new Rei(board, Color.WHITE));
+		placeNewPiece('c', 1, new Torre(board, Color.WHITE));
+        placeNewPiece('c', 2, new Torre(board, Color.WHITE));
+        placeNewPiece('d', 2, new Torre(board, Color.WHITE));
+        placeNewPiece('e', 2, new Torre(board, Color.WHITE));
+        placeNewPiece('e', 1, new Torre(board, Color.WHITE));
+        placeNewPiece('d', 1, new Rei(board, Color.WHITE));
+
+        placeNewPiece('c', 7, new Torre(board, Color.BLACK));
+        placeNewPiece('c', 8, new Torre(board, Color.BLACK));
+        placeNewPiece('d', 7, new Torre(board, Color.BLACK));
+        placeNewPiece('e', 7, new Torre(board, Color.BLACK));
+        placeNewPiece('e', 8, new Torre(board, Color.BLACK));
+        placeNewPiece('d', 8, new Rei(board, Color.BLACK));
 		
 	}
 }
