@@ -59,6 +59,22 @@ public class Board { //Classe Tabuleiro
 		piece.position = position; //dizendo que a peça nao esta mais nula e sim na posição (position)
 	}
 	
+	public Piece removePiece(Position position) {
+		
+		if (!positionExists(position)) { //programação defensiva
+			
+			throw new BoardException("Position not on the board.");
+		}
+		if (piece(position) == null) { //se for verdade que a peça no tabuleiro nestsa posição for igual a nulo
+			
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux; //aux contém a peça que foi retirada
+	}
+	
 	private boolean positionExists(int row, int column) {
 		
 		return row >= 0 && row < rows && column >= 0 && column< columns; //condição completa para ver se uma posição existe		

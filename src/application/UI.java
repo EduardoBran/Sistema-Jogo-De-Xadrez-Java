@@ -1,13 +1,18 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
+import chess.Color;
 
 public class UI { // UserInterface
-	
-	//Códigos especiais para imprimir cores no projeto
-	//https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-	
-	//cores do texto
+
+	// Códigos especiais para imprimir cores no projeto
+	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
+
+	// cores do texto
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -18,7 +23,7 @@ public class UI { // UserInterface
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
 
-	//cores do fundo
+	// cores do fundo
 	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
 	public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -28,6 +33,20 @@ public class UI { // UserInterface
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+	
+	public static ChessPosition readChessPosition(Scanner sc) { //método para ler uma posição do usuário
+		
+		try {
+			String s = sc.nextLine();  //lendo os dados
+			char column = s.charAt(0); //pegando apenas a linha
+			int row = Integer.parseInt(s.substring(1)); //pegando a coluna e convetertendo o valor para Integer
+			return new ChessPosition(column, row);
+		}
+		catch (RuntimeException e) {//pega qualquer erro como dados inválidos
+			throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
+		}	
+	}
+	
 	public static void printBoard(ChessPiece[][] pieces) { // lógica para exibição do tabuleiro
 
 		for (int i = 0; i < pieces.length; i++) {
@@ -44,12 +63,18 @@ public class UI { // UserInterface
 	}
 
 	// metodo auxiliar para imprimir uma peça
-	private static void printPiece(ChessPiece piece) { // imprimi 1 peça
-
-		if (piece == null) { // se a peça for igual a nulo, nao tem peça no tabuleiro
+	private static void printPiece(ChessPiece piece) {
+		
+		if (piece == null) {
 			System.out.print("-");
-		} else {
-			System.out.print(piece);
+		} 
+		else {
+			if (piece.getColor() == Color.WHITE) {
+				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
+			} 
+			else {
+				System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
+			}
 		}
 		System.out.print(" ");
 	}
