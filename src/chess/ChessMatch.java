@@ -8,13 +8,25 @@ import chess.pieces.Torre;
 //partida de xadrez . Coração do projeto. Onde vão ter as regras do sistema
 public class ChessMatch { 
 	
+	private int turn;
+	private Color currentPlayer;
 	private Board board; //partida de xadrez TEM que ter 1 tabuleiro
 	
 	
 	public ChessMatch() { //quando é criado a partida, o construtor cria o tabuleiro e chama o setup
 		 
 		board = new Board(8 , 8); //dimensão do tabuleiro de xadrez
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		initialSetup();
+	}
+	
+	public int getTurn() {
+		return turn;
+	}
+	
+	public Color getCurrentPlayer() {
+		return currentPlayer;
 	}
 	
 	public ChessPiece[][] getPieces(){ //Retornar uma matriz de peças de xadrez correspondente a essa partida.
@@ -50,6 +62,8 @@ public class ChessMatch {
 		
 		Piece capturedPiece = makeMove(source, target); 
 		
+		nextTurn(); //trocar o turno
+		
 		return (ChessPiece)capturedPiece; //downcasting pq a peça capturada era do tipo Piece
 	}
 	
@@ -66,9 +80,13 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position.");
 		}
+		if (currentPlayer != ((ChessPiece)board.piece(position)).getColor()) { //exceção para caso o jogardo esteja tentando mover uma peça adversária
+			throw new ChessException("The chosen piece is not yours.");
+		}
 		if (!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("There is no possible moves for the choesen piece");
 		}
+				
 	}
 	
 	private void validadeTargetPosition(Position source, Position target) {
@@ -77,6 +95,12 @@ public class ChessMatch {
 			
 			throw new ChessException("The chosen piece can't move to target position.");
 		}	
+	}
+	
+	//método para alternar oos jogadores
+	private void nextTurn() {
+		turn++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE; //ternário, se o jogador atual for igual a Color.WHITE então agora ele vai ser o Color.BLACK , caso contrário ele vai ser o Color.WHITE 
 	}
 			
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
