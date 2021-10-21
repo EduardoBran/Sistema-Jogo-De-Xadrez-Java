@@ -66,6 +66,12 @@ public class UI { // UserInterface
 		System.out.println();
 		System.out.println("Turn: " + chessMatch.getTurn());
 		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		
+		if (chessMatch.getCheck()) {
+			System.out.println();
+			System.out.println("* * * * * * * * * *  C H E C K !  * * * * * * * * * *");
+			System.out.println();
+		}
 	}
 	
 	public static void printBoard(ChessPiece[][] pieces) { // lógica para exibição do tabuleiro

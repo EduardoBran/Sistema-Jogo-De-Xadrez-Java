@@ -17,6 +17,11 @@ public abstract class ChessPiece extends Piece { //peças de xadrez
 		return color;
 	}	
 	
+	public ChessPosition getChessPosition() {
+		
+		return ChessPosition.fromPosition(position);
+	}
+	
 	//implementação para verificar se existe uma peça adversária
 	protected boolean isThereOpponentPiece(Position position) {
 		
