@@ -20,7 +20,7 @@ public class Program {
 		List<ChessPiece> captured = new ArrayList<>();
 		
 		//funcao para imprimir peças da partida
-		while (true) {
+		while (!chessMatch.getCheckMate()) {
 			
 			try {
 				UI.clearScreen(); //limpar tela
@@ -54,6 +54,8 @@ public class Program {
 				sc.nextLine(); //programa aguardar eu digitar algo
 			}	
 		}
+		UI.clearScreen();
+		UI.printMatch(chessMatch, captured);
 	}
 }
 
