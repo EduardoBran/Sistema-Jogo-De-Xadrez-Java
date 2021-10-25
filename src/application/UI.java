@@ -136,12 +136,12 @@ public class UI { // UserInterface
 	
 	//método responsável por imprimir na tela a listinha de peças capturadas
 	private static void printCapturedPieces(List<ChessPiece> captured) {
-		
-		//pra começar, criar uma lista das peças capturadsa brancas
 		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList()); //filtrando da lita todas que sao Brancas
+		//pra começar, criar uma lista das peças capturadsa brancas
+		
 		
 		//lista peças capturadas preta
-		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList()); //filtrando da lita todas que sao Pretas
+		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList()); //filtrando da lita todas que sao Pretas		
 		
 		//lógica para imprimir as peças capturadas na tela
 		

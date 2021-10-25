@@ -88,6 +88,7 @@ public class ChessMatch {
 		check = (testCheck(opponent(currentPlayer))) ? true : false;
 		
 		if (testCheckMate(opponent(currentPlayer))) {
+			
 			checkMate = true;
 		}
 		else {
@@ -100,7 +101,8 @@ public class ChessMatch {
 	
 	private Piece makeMove(Position source, Position target) {
 		
-		Piece p = board.removePiece(source); //retirou a peçada posição de origem
+		ChessPiece p = (ChessPiece)board.removePiece(source); //retirou a peçada posição de origem
+		p.increaseMoveCount();
 		Piece capturedPiece = board.removePiece(target);
 		board.placePiece(p, target);
 		
@@ -115,7 +117,8 @@ public class ChessMatch {
 	//método para desfazer o movimento (evitar que o jogador se coloque em xeque)
 	private void undoMove(Position source, Position target, Piece capturedPiece) {
 		
-		Piece p = board.removePiece(target);
+		ChessPiece p =  (ChessPiece)board.removePiece(target);
+		p.decreaseMoveCount();
 		board.placePiece(p, source);
 		
 		if (capturedPiece != null) {

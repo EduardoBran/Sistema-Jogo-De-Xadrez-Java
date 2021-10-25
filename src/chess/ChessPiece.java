@@ -7,6 +7,8 @@ import boardgame.Position;
 public abstract class ChessPiece extends Piece { //peças de xadrez
 	
 	private Color color;
+	private int moveCount;
+	
 
 	public ChessPiece(Board board, Color color) {
 		super(board); //repassa a chamada para o construtor da super classe que é o construtor da classe Piece
@@ -15,7 +17,20 @@ public abstract class ChessPiece extends Piece { //peças de xadrez
 
 	public Color getColor() {
 		return color;
-	}	
+	}
+	
+	public int getMoveCount() {
+		return moveCount;
+	}
+	
+	//método para incrementar movimentos
+	public void increaseMoveCount() {
+		moveCount++;
+	}
+	
+	public void decreaseMoveCount() {
+		moveCount--;
+	}
 	
 	public ChessPosition getChessPosition() {
 		
