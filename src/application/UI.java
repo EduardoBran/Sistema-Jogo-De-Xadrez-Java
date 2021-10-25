@@ -94,6 +94,7 @@ public class UI { // UserInterface
 			}
 			System.out.println();
 		}
+		System.out.println();
 		System.out.println("  a b c d e f g h");
 	}
 	
@@ -144,7 +145,7 @@ public class UI { // UserInterface
 		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList()); //filtrando da lita todas que sao Pretas		
 		
 		//lógica para imprimir as peças capturadas na tela
-		
+		System.out.println();
 		System.out.println("Captured pieces:");
 		System.out.print("White: ");
 		System.out.print(ANSI_WHITE); //garantindo que vai imprimir na cor branca
